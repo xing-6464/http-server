@@ -12,6 +12,7 @@ server.listen(8081, () => {
 server.on('request', (req, res) => {
   console.info('555');
 
-  res.write('8888');
+  res.setHeader('Content-Type', 'text/plain;charset=utf8');
+  res.write('你好');
   res.end();
 });
