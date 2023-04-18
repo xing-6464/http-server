@@ -20,5 +20,17 @@ server.on('request', (req, res) => {
         res.end();
       });
     }
+  } else if (req.method === 'POST') {
+    let d = '';
+
+    req.on('data', data => {
+      d += data;
+    });
+
+    req.on('end', () => {
+      console.info(require('querystring').parse(d));
+    });
+
+    res.end();
   }
 });
